@@ -1,7 +1,7 @@
 import google.generativeai as genai
 import pyodbc
 
-genai.configure(api_key="AIzaSyAtFgMndIPGOKtn97XLAYO9YKzsLqhdJH8")
+genai.configure(api_key="AIzaSyAtFgMndIxxxxxxxxxxxxxxxxxxxxx")
 
 ###############Simple example how you can interact with Chat bot.###############
 # genai.configure(api_key="AIzaSyAtFgMndIPGOKtn97XLAYO9YKzsLqhdJH8")
@@ -55,9 +55,9 @@ chat = model.start_chat()
 conn = pyodbc.connect(
     "DRIVER={SQL Server};"
     "SERVER=INB-511809\\SQL2019;"  
-    "DATABASE=TestingDB;"
+    "DATABASE=your_db;"
     "UID=sa;"
-    "PWD=Epicor123;" 
+    "PWD=your_password;" 
 )
 
 cursor = conn.cursor()
