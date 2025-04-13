@@ -1,7 +1,8 @@
 import google.generativeai as genai
 import pyodbc
+import config
 
-genai.configure(api_key="AIzaSyAtFgMndIxxxxxxxxxxxxxxxxxxxxx")
+genai.configure(api_key=config.GEMINI_API_KEY)
 
 ###############Simple example how you can interact with Chat bot.###############
 # genai.configure(api_key="AIzaSyAtFgMndIPGOKtn97XLAYO9YKzsLqhdJH8")
@@ -53,11 +54,11 @@ model = genai.GenerativeModel(
 
 chat = model.start_chat()
 conn = pyodbc.connect(
-    "DRIVER={SQL Server};"
-    "SERVER=INB-511809\\SQL2019;"  
-    "DATABASE=your_db;"
-    "UID=sa;"
-    "PWD=your_password;" 
+    f"DRIVER={config.DB_CONFIG['driver']};"
+    f"SERVER={config.DB_CONFIG['server']};"
+    f"DATABASE={config.DB_CONFIG['database']};"
+    f"UID={config.DB_CONFIG['uid']};"
+    f"PWD={config.DB_CONFIG['pwd']};"
 )
 
 cursor = conn.cursor()
